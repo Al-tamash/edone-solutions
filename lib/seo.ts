@@ -13,7 +13,7 @@ interface SEOProps {
 export function generateMetadata({
   title,
   description,
-  keywords = DEFAULT_SEO.keywords,
+  keywords = [...DEFAULT_SEO.keywords],
   ogImage = "/images/og-image.jpg",
   noIndex = false,
   canonical,
