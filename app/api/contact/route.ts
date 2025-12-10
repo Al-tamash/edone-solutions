@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/validation";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Only initialize Resend if API key is available
+let resend: Resend | null = null;
+if (process.env.RESEND_API_KEY) {
+  resend = new Resend(process.env.RESEND_API_KEY);
+}
 
 // Rate limiting: Simple in-memory store (in production, use Redis)
 const rateLimitMap = new Map<string, number[]>();
@@ -91,8 +95,8 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Only send email if API key is configured
-    if (process.env.RESEND_API_KEY) {
+    // Only send email if Resend is initialized
+    if (resend) {
       await resend.emails.send(emailData);
     } else {
       console.log("Resend API key not configured. Email data:", emailData);

@@ -14,7 +14,7 @@ export const contactFormSchema = z.object({
       "Please enter a valid phone number"
     ),
   service: z.enum(["web-design", "web-development", "virtual-tours", "other"], {
-    required_error: "Please select a service",
+    message: "Please select a service",
   }),
   budget: z.string().optional(),
   message: z
