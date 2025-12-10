@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Edone Solutions Website
 
-## Getting Started
+A professional marketing website built with Next.js 16, Tailwind CSS v4, and Framer Motion. Features comprehensive service pages, dynamic routes, accessible navigation, and SEO optimization.
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+```
+edone-solutions-web/
+├── app/
+│   ├── api/leads/          # Lead capture API route
+│   ├── services/
+│   │   ├── 360/            # 360 Virtual Tours
+│   │   │   └── [category]/ # Dynamic category pages
+│   │   ├── design/         # Website Design
+│   │   │   └── [industry]/ # Dynamic industry pages
+│   │   ├── development/    # Website Development
+│   │   │   └── [industry]/ # Dynamic industry pages
+│   │   └── google-ads/     # Google Ads
+│   │       └── [campaign]/ # Dynamic campaign pages
+│   ├── sitemap.ts          # Dynamic sitemap
+│   └── robots.ts           # Robots.txt
+├── components/
+│   ├── common/             # Reusable components
+│   │   ├── CaseStudy.tsx   # Case study display
+│   │   ├── PricingCard.tsx # Pricing display
+│   │   ├── Viewer360.tsx   # 360 panorama embed
+│   │   └── TestimonialCard.tsx
+│   └── layout/
+│       ├── Header.tsx      # Header with dropdown
+│       ├── ServicesDropdown.tsx  # Accessible mega menu
+│       └── Footer.tsx
+├── lib/
+│   ├── services-data.ts    # All service/category data
+│   ├── types.ts            # TypeScript definitions
+│   ├── seo.ts              # SEO/schema utilities
+│   └── constants.ts        # Company info
+├── public/images/          # Placeholder images
+└── data/                   # Lead storage (JSON)
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Brand Colors (Tailwind)
 
-## Deploy on Vercel
+Colors are defined in `tailwind.config.ts` under `edone`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```js
+edone: {
+  primary: '#F4961E',    // Orange
+  secondary: '#F1642F',  // Red-Orange
+  accent: '#09A4E6',     // Blue
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Adding Content
+
+**Services Data**: Edit `lib/services-data.ts` to add/modify:
+- 360 Virtual Tour categories
+- Website Design industries
+- Website Development industries
+- Google Ads campaigns
+- Case studies, testimonials, pricing
+
+**Images**: Replace placeholders in `public/images/`:
+- `services/360/` - 360 tour images
+- `case-studies/` - Before/after screenshots
+- `clients/` - Client logos
+- `samples/` - Design samples
+
+---
+
+## 🌐 Deployment to Vercel
+
+### One-Click Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+### Manual Deployment
+
+1. Push code to GitHub
+2. Import project in [Vercel Dashboard](https://vercel.com/new)
+3. Configure environment (if needed)
+4. Deploy
+
+---
+
+## 📊 Google Ads Landing Page Checklist
+
+When running Google Ads campaigns, ensure:
+
+- [ ] **H1 matches ad headline** - First heading should match the ad copy
+- [ ] **Above-fold CTA** - Clear call-to-action visible without scrolling
+- [ ] **Fast load time** - Under 3 seconds (check with Lighthouse)
+- [ ] **Mobile optimized** - Test on actual mobile devices
+- [ ] **Trust signals** - Include testimonials, client logos
+- [ ] **Contact form** - Easy form with minimal required fields
+- [ ] **Phone number** - Clickable phone link
+- [ ] **Clear value proposition** - What visitor gets explained immediately
+- [ ] **Conversion tracking** - Google Ads conversion tag installed
+- [ ] **No distracting navigation** - Keep focus on conversion
+
+---
+
+## 🔧 API Routes
+
+### POST /api/leads
+Captures lead form submissions.
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "9494720878",
+  "service": "360",
+  "category": "hotel",
+  "message": "I need a virtual tour..."
+}
+```
+
+Response:
+```json
+{
+  "success": true,
+  "message": "Thank you for your inquiry!",
+  "leadId": "lead_123..."
+}
+```
+
+---
+
+## 📞 Contact Information
+
+- **Phone**: [+91 9494720878](tel:+919494720878)
+- **Email**: info@edonesolutions.com
+- **Map**: [Google Maps](https://maps.app.goo.gl/MrQuytyqVrEBKwGZ8)
+
+### Social Links
+- [Facebook](https://www.facebook.com/Edonesolution/)
+- [Instagram](https://www.instagram.com/edonesolutions/)
+- [LinkedIn](https://in.linkedin.com/company/edone-solutions)
+- [YouTube](https://www.youtube.com/channel/UCcmcsvZI0aZ-PSvpiXuJ3pw)
+- [X (Twitter)](https://x.com/edonesolutions)
+
+---
+
+## 📝 License
+
+Proprietary - Edone Solutions © 2024
