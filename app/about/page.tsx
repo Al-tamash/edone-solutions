@@ -119,7 +119,7 @@ export default function AboutPage() {
 
         {/* Stats Section */}
         <section className="bg-gray-900 rounded-3xl p-8 lg:p-12 mb-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(244,150,30,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(244,150,30,0.1)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--color-logo-1),0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--color-logo-1),0.1)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
           <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { number: '180+', label: 'Happy Clients' },

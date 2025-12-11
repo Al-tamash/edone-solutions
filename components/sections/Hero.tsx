@@ -40,7 +40,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-edone-primary-50/80 via-white/90 to-edone-accent-50/80" />
       
       {/* Animated mesh grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black,transparent)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black,transparent)]" />
 
       {/* Floating orbs - animated background elements */}
       <motion.div

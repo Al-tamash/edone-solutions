@@ -85,7 +85,7 @@ export function Testimonials() {
   return (
     <section className="py-24 lg:py-32 bg-gradient-to-br from-white via-edone-primary-50/30 to-edone-accent-50/30 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(244,150,30,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--color-logo-1),0.1),transparent_50%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section header */}

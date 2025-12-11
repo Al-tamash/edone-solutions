@@ -49,9 +49,9 @@ export function WhyChooseUs() {
     <section className="py-24 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(244,150,30,0.15),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(9,164,230,0.15),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(var(--color-logo-1),0.15),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(var(--color-logo-2),0.15),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--grid-line-dark)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line-dark)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

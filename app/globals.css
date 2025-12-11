@@ -87,10 +87,22 @@
   --color-edone-accent-800: #04425C;
   --color-edone-accent-900: #02212E;
   
-  /* Legacy Brand Colors */
-  --color-brand-primary: rgb(244, 150, 30);
-  --color-brand-secondary: rgb(241, 100, 47);
-  --color-brand-accent: rgb(9, 164, 230);
+  /* Logo Brand Colors - Core */
+  --color-logo-1: 244, 150, 30;
+  --color-logo-2: 9, 164, 230;
+  --color-logo-3: 241, 100, 47;
+  --color-logo-4: 153, 216, 150;
+  
+  /* Logo Colors - Solid */
+  --color-logo-1-solid: rgb(var(--color-logo-1));
+  --color-logo-2-solid: rgb(var(--color-logo-2));
+  --color-logo-3-solid: rgb(var(--color-logo-3));
+  --color-logo-4-solid: rgb(var(--color-logo-4));
+  
+  /* Grid Line Color */
+  --grid-line: rgba(240, 240, 240, 1);
+  --grid-line-dark: rgba(255, 255, 255, 0.03);
+  --grid-line-light: rgba(255, 255, 255, 0.05);
 }
 
 :root {
@@ -127,10 +139,11 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   
-  /* Brand Colors */
-  --brand-primary: rgb(244, 150, 30);
-  --brand-secondary: rgb(241, 100, 47);
-  --brand-accent: rgb(9, 164, 230);
+  /* Brand Colors - using logo color system */
+  --brand-primary: rgb(var(--color-logo-1));
+  --brand-secondary: rgb(var(--color-logo-3));
+  --brand-accent: rgb(var(--color-logo-2));
+  --brand-success: rgb(var(--color-logo-4));
 }
 
 .dark {
@@ -165,6 +178,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  
+  /* Grid line for dark mode */
+  --grid-line: rgba(255, 255, 255, 0.05);
+  
+  /* Logo Brand Colors - same values for dark mode */
+  --color-logo-1: 244, 150, 30;
+  --color-logo-2: 9, 164, 230;
+  --color-logo-3: 241, 100, 47;
+  --color-logo-4: 153, 216, 150;
+  
+  /* Brand Colors - using logo color system */
+  --brand-primary: rgb(var(--color-logo-1));
+  --brand-secondary: rgb(var(--color-logo-3));
+  --brand-accent: rgb(var(--color-logo-2));
+  --brand-success: rgb(var(--color-logo-4));
 }
 
 @layer base {

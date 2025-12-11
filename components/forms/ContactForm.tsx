@@ -161,8 +161,9 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent text-white"
+          className="w-full bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:opacity-90"
           size="lg"
+          style={{ color: '#ffffff' }}
         >
           {isSubmitting ? (
             <>

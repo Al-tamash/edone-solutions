@@ -194,7 +194,7 @@ export default function GoogleAdsPage() {
 
           {/* What's Included */}
           <div className="bg-gray-900 rounded-2xl p-8 mb-20 overflow-hidden relative">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(244,150,30,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(244,150,30,0.1)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--color-logo-1),0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--color-logo-1),0.1)_1px,transparent_1px)] bg-[size:2rem_2rem]" />
             <h3 className="text-xl font-bold text-white text-center mb-8 relative">
               Included in All Campaigns
             </h3>

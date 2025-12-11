@@ -40,7 +40,7 @@ export function ProcessSection() {
   return (
     <section className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(9,164,230,0.08),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(var(--color-logo-2),0.08),transparent_40%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section header */}
