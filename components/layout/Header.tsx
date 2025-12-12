@@ -55,11 +55,11 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               <Link
                 href="/"
-                className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                  pathname === "/" ? "text-brand-primary" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/" ? "text-edone-primary" : "text-gray-700"
                 }`}
               >
                 Home
@@ -67,32 +67,40 @@ export function Header() {
               <ServicesDropdown />
               <Link
                 href="/portfolio"
-                className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                  pathname === "/portfolio" ? "text-brand-primary" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/portfolio" ? "text-edone-primary" : "text-gray-700"
                 }`}
               >
                 Portfolio
               </Link>
               <Link
+                href="/packages"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/packages" ? "text-edone-primary" : "text-gray-700"
+                }`}
+              >
+                Packages
+              </Link>
+              <Link
                 href="/about"
-                className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                  pathname === "/about" ? "text-brand-primary" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/about" ? "text-edone-primary" : "text-gray-700"
                 }`}
               >
                 About
               </Link>
               <Link
                 href="/blog"
-                className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                  pathname === "/blog" ? "text-brand-primary" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/blog" ? "text-edone-primary" : "text-gray-700"
                 }`}
               >
                 Blog
               </Link>
               <Link
                 href="/contact"
-                className={`text-sm font-medium transition-colors hover:text-brand-primary ${
-                  pathname === "/contact" ? "text-brand-primary" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-edone-primary ${
+                  pathname === "/contact" ? "text-edone-primary" : "text-gray-700"
                 }`}
               >
                 Contact
@@ -103,7 +111,7 @@ export function Header() {
             <div className="hidden lg:block">
               <Button
                 asChild
-                className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent text-white hover:opacity-90"
+                className="bg-gradient-to-r from-edone-primary via-edone-secondary to-edone-accent text-white hover:opacity-90 shadow-lg shadow-edone-primary/25"
               >
                 <Link href="/contact">Get Quote</Link>
               </Button>
@@ -111,7 +119,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 text-gray-700 hover:text-brand-primary transition-colors"
+              className="lg:hidden p-2 text-gray-700 hover:text-edone-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >

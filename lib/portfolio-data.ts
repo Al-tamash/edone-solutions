@@ -14,6 +14,7 @@ export interface PortfolioProject {
   imageUrl: string;
   projectUrl?: string;
   completedDate: string;
+  featured?: boolean;
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -41,6 +42,7 @@ export const portfolioProjects: PortfolioProject[] = [
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     projectUrl: "https://techvista-demo.com",
     completedDate: "2024-08",
+    featured: true,
   },
   {
     id: "2",
@@ -65,6 +67,7 @@ export const portfolioProjects: PortfolioProject[] = [
     technologies: ["360° Photography", "Matterport", "Custom Web Integration", "VR Compatible"],
     imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop",
     completedDate: "2024-06",
+    featured: true,
   },
   {
     id: "3",
@@ -162,6 +165,104 @@ export const portfolioProjects: PortfolioProject[] = [
     imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
     completedDate: "2024-02",
   },
+  // NEW: More Virtual Tour Projects for different industries
+  {
+    id: "7",
+    slug: "grand-hotel-360-tour",
+    title: "Grand Palace Hotel Virtual Tour",
+    client: "Grand Palace Hotel",
+    industry: "Hospitality",
+    category: "virtual-tours",
+    shortDescription: "Luxury hotel 360° tour with room previews",
+    fullDescription:
+      "Complete 360° virtual tour of Grand Palace Hotel featuring lobby, restaurant, spa, conference halls, and all room types with interactive hotspots.",
+    challenge:
+      "The hotel needed to showcase their premium facilities to international travelers who couldn't visit before booking.",
+    solution:
+      "Created an immersive virtual walkthrough covering 25+ locations within the property with navigation hotspots, information pop-ups, and direct booking integration.",
+    results: [
+      "Booking conversions increased by 45%",
+      "Average stay duration increased",
+      "Listed on Google Street View",
+      "12,000+ virtual visits monthly",
+    ],
+    technologies: ["360° Photography", "Pannellum", "Google Street View", "Custom CMS"],
+    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop",
+    completedDate: "2024-07",
+    featured: true,
+  },
+  {
+    id: "8",
+    slug: "international-school-campus-tour",
+    title: "Delhi International School Campus Tour",
+    client: "Delhi International School",
+    industry: "Education",
+    category: "virtual-tours",
+    shortDescription: "Interactive campus tour for prospective students",
+    fullDescription:
+      "Virtual campus tour for Delhi International School showcasing classrooms, labs, library, sports facilities, and dormitories with information hotspots.",
+    challenge:
+      "Parents and students from other cities couldn't visit the campus before admission decisions.",
+    solution:
+      "Built a comprehensive virtual campus experience with guided tour mode, voice-over narration, and interactive information about each facility.",
+    results: [
+      "Out-of-city admissions increased by 60%",
+      "Tour embedded on website and social media",
+      "8,500+ virtual campus visits",
+      "Reduced campus visit scheduling by 40%",
+    ],
+    technologies: ["360° Photography", "Virtual Reality", "Audio Narration", "Mobile Optimized"],
+    imageUrl: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop",
+    completedDate: "2024-06",
+  },
+  {
+    id: "9",
+    slug: "fine-dining-restaurant-tour",
+    title: "The Curry House Restaurant Tour",
+    client: "The Curry House",
+    industry: "Food & Beverage",
+    category: "virtual-tours",
+    shortDescription: "Restaurant ambiance tour for diners",
+    fullDescription:
+      "360° virtual tour of The Curry House's elegant dining spaces, private rooms, and kitchen area to showcase the ambiance to potential diners.",
+    challenge:
+      "New restaurant needed to build trust and show their unique interior design to attract first-time customers.",
+    solution:
+      "Created an inviting virtual walkthrough with menu highlights, chef introduction video hotspots, and direct reservation links.",
+    results: [
+      "Table reservations up by 55%",
+      "Google Business engagement increased",
+      "Featured in local food blogs",
+      "Social media shares 500+",
+    ],
+    technologies: ["360° Photography", "Google Maps Integration", "Social Media Embed"],
+    imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop",
+    completedDate: "2024-05",
+  },
+  {
+    id: "10",
+    slug: "car-showroom-virtual-tour",
+    title: "Premium Auto Showroom Tour",
+    client: "Premium Auto Motors",
+    industry: "Fashion & Retail",
+    category: "virtual-tours",
+    shortDescription: "Luxury car showroom with vehicle details",
+    fullDescription:
+      "Interactive virtual showroom for Premium Auto Motors featuring their luxury car collection with detailed specifications, 360° car views, and inquiry forms.",
+    challenge:
+      "Customers wanted to explore vehicle options before visiting the showroom in person.",
+    solution:
+      "Built a virtual showroom experience with individual car hotspots showing specifications, pricing, and direct inquiry buttons for each vehicle.",
+    results: [
+      "Qualified inquiries increased by 70%",
+      "Average visit time 8+ minutes",
+      "Test drive bookings up 40%",
+      "Featured on automotive websites",
+    ],
+    technologies: ["360° Photography", "Product Hotspots", "CRM Integration", "Lead Capture"],
+    imageUrl: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop",
+    completedDate: "2024-04",
+  },
 ];
 
 export function getProjectBySlug(slug: string): PortfolioProject | undefined {
@@ -170,5 +271,25 @@ export function getProjectBySlug(slug: string): PortfolioProject | undefined {
 
 export function getProjectsByCategory(category: string): PortfolioProject[] {
   if (category === "all") return portfolioProjects;
-  return portfolioProjects.filter((project) => project.category === category);
+  
+  // Check if it's a service category
+  const serviceCategories = ["web-design", "web-development", "virtual-tours"];
+  if (serviceCategories.includes(category)) {
+    return portfolioProjects.filter((project) => project.category === category);
+  }
+  
+  // Otherwise it's an industry filter
+  return portfolioProjects.filter((project) => project.industry === category);
+}
+
+export function getFeaturedProjects(): PortfolioProject[] {
+  return portfolioProjects.filter((project) => project.featured);
+}
+
+export function getProjectCountByIndustry(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  portfolioProjects.forEach((project) => {
+    counts[project.industry] = (counts[project.industry] || 0) + 1;
+  });
+  return counts;
 }

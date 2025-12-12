@@ -29,6 +29,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -199,8 +200,17 @@ export const STATS = [
   { label: "Years Experience", value: 8 },
   { label: "Projects Completed", value: 250 },
   { label: "Happy Clients", value: 180 },
-  { label: "Team Members", value: 12 },
+  { label: "Cities Served", value: 15 },
 ] as const;
+
+// Extended stats for detailed pages
+export const EXTENDED_STATS = {
+  citiesServed: 15,
+  industriesCovered: 12,
+  virtualTourViews: 85000,
+  googleMapsListings: 120,
+  clientSatisfaction: 98,
+} as const;
 
 // SEO Metadata Defaults
 export const DEFAULT_SEO = {

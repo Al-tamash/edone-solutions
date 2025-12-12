@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Camera, Building2, Heart, Gem, GraduationCap, Hammer, ArrowRight, CheckCircle, Play } from 'lucide-react';
+import { 
+  Camera, Building2, Heart, Gem, GraduationCap, Hammer, ArrowRight, CheckCircle, Play,
+  Smartphone, Share2, Glasses, MapPin, Palette, BarChart3, DollarSign, Globe, MousePointer
+} from 'lucide-react';
 import { PageHeader } from '@/components/common/PageHeader';
 import { HomeCTA } from '@/components/sections/HomeCTA';
 import { PricingGrid } from '@/components/common/PricingCard';
@@ -31,6 +34,55 @@ const categoryImages: Record<string, string> = {
   school: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop',
   hardware: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?q=80&w=800&auto=format&fit=crop',
 };
+
+// Feature badges data (like Turiya's 9 features)
+const featureBadges = [
+  {
+    icon: MousePointer,
+    title: 'Interactive & Informative',
+    description: 'Engage audience with interactive hotspots, text, music, voice over, images and embedded videos',
+  },
+  {
+    icon: Smartphone,
+    title: 'Mobile Friendly',
+    description: 'Responsive design ensures customers experience 360° tours on all Android/iOS devices',
+  },
+  {
+    icon: Share2,
+    title: 'Built for Social',
+    description: 'Integrated social media icons for easy sharing across messengers and social platforms',
+  },
+  {
+    icon: Globe,
+    title: 'Platform Neutral',
+    description: 'Works on all modern browsers running Windows, Apple iOS, OSX and Google Android',
+  },
+  {
+    icon: Glasses,
+    title: 'Virtual Reality Ready',
+    description: 'Can be embedded and made VR ready for your head mounted display devices',
+  },
+  {
+    icon: MapPin,
+    title: 'Google Maps Integration',
+    description: 'Improve retention rate and organic search by listing on Google Street View / Maps',
+  },
+  {
+    icon: Palette,
+    title: 'Brand Consistency',
+    description: 'Tours align with your branding and design guidelines for seamless customer experience',
+  },
+  {
+    icon: BarChart3,
+    title: 'Measurable Analytics',
+    description: 'Integrated with Google Analytics to provide accurate overview of user engagement',
+  },
+  {
+    icon: DollarSign,
+    title: 'No Hidden Charges',
+    description: 'Pay nothing extra for UI/UX, web development, testing and VR version. No AMC fees',
+  },
+];
 
 export default function VirtualToursPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -103,6 +155,32 @@ export default function VirtualToursPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Feature Badges Section (Like Turiya's 9 Features) */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+                Features to <span className="bg-gradient-to-r from-edone-primary via-edone-secondary to-edone-accent bg-clip-text text-transparent">Enhance and Empower</span>
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Everything you need for a premium 360° virtual tour experience
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featureBadges.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-edone-primary/30 hover:shadow-xl hover:shadow-edone-primary/10 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-edone-primary/10 to-edone-secondary/10 flex items-center justify-center mb-4 group-hover:bg-gradient-to-br group-hover:from-edone-primary group-hover:to-edone-secondary transition-all duration-300">
+                    <feature.icon className="w-6 h-6 text-edone-primary group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
