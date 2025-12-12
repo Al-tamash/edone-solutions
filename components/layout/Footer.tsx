@@ -14,13 +14,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <Image
-              src="/images/logo.svg"
-              alt="Edone Solutions"
-              width={140}
-              height={45}
-              className="h-10 w-auto brightness-0 invert"
-            />
+            <div className="flex items-center space-x-2">
+              <Image
+                src="/images/logo.png"
+                alt="Edone Solutions"
+                width={45}
+                height={45}
+                className="h-10 w-auto"
+              />
+              <span className="text-xl font-bold bg-gradient-to-r from-edone-primary via-edone-accent to-edone-secondary bg-clip-text text-transparent">
+                Edone Solutions
+              </span>
+            </div>
             <p className="text-sm text-gray-400">
               {COMPANY.tagline}
             </p>

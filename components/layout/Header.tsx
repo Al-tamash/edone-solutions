@@ -42,13 +42,16 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
               <Image
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="Edone Solutions"
-                width={140}
+                width={45}
                 height={45}
-                className="h-10 sm:h-12 w-auto"
+                className="h-10 sm:h-11 w-auto"
                 priority
               />
+              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-edone-primary via-edone-accent to-edone-secondary bg-clip-text text-transparent">
+                Edone Solutions
+              </span>
             </Link>
 
             {/* Desktop Navigation */}

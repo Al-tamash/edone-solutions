@@ -3,6 +3,7 @@ export const COMPANY = {
   name: "Edone Solutions",
   tagline: "Transforming Digital Visions into Reality",
   phone: "+91 9494720878",
+  whatsapp: "+91 9494720878",
   email: "info@edonesolutions.com",
   address: {
     city: "Hyderabad",

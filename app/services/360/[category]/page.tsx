@@ -8,12 +8,13 @@ import {
   Calendar, Users, X
 } from 'lucide-react';
 import { PageHeader } from '@/components/common/PageHeader';
-import { CaseStudy } from '@/components/common/CaseStudy';
+import { FloatingWhatsApp } from '@/components/common/FloatingWhatsApp';
 import { PricingGrid } from '@/components/common/PricingCard';
 import { TestimonialGrid } from '@/components/common/TestimonialCard';
+import { PackageComparisonTable } from '@/components/common/PackageComparisonTable';
 import { Button } from '@/components/ui/button';
 import { HomeCTA } from '@/components/sections/HomeCTA';
-import { getVirtualTourCategory, VIRTUAL_TOUR_PRICING, HOSPITAL_PRICING, HOTEL_PRICING, JEWELLERY_PRICING, SCHOOL_PRICING, HARDWARE_PRICING, VIRTUAL_TOUR_CATEGORIES } from '@/lib/services-data';
+import { getVirtualTourCategory, VIRTUAL_TOUR_PRICING, HOSPITAL_PRICING, HOTEL_PRICING, JEWELLERY_PRICING, SCHOOL_PRICING, HARDWARE_PRICING, HOTEL_PACKAGE_COMPARISON, VIRTUAL_TOUR_CATEGORIES } from '@/lib/services-data';
 import { generateMetadata as generateSEOMetadata, generateBreadcrumbSchema, generateServiceSchema } from '@/lib/seo';
 import { COMPANY } from '@/lib/constants';
 
@@ -255,7 +256,7 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white/10 text-lg px-8"
+                  className="border-2 border-edone-primary text-edone-primary hover:bg-edone-primary hover:text-white text-lg px-8"
                 >
                   <Link href="#how-it-works">
                     See How It Works
@@ -265,24 +266,42 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
             </div>
             
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                <Image
-                  src={heroImage}
-                  alt={`360 Virtual Tour for ${category.name}`}
-                  width={700}
-                  height={500}
-                  className="object-cover w-full h-[400px] lg:h-[450px]"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-8">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors cursor-pointer">
-                      <Play className="w-8 h-8 text-white fill-white" />
-                    </div>
-                    <p className="font-semibold">Interactive 360° Experience</p>
+              {category.slug === 'hotel' ? (
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <iframe
+                    src="https://tourmkr.com/F1GzsCVngb/45697729p&354.26h&119.75t"
+                    width="100%"
+                    height="450"
+                    frameBorder="0"
+                    allowFullScreen
+                    loading="eager"
+                    title="360 Virtual Tour Demo"
+                    className="w-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <p className="text-center font-semibold text-white">Interactive 360° Experience</p>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <Image
+                    src={heroImage}
+                    alt={`360 Virtual Tour for ${category.name}`}
+                    width={700}
+                    height={500}
+                    className="object-cover w-full h-[400px] lg:h-[450px]"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-8">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors cursor-pointer">
+                        <Play className="w-8 h-8 text-white fill-white" />
+                      </div>
+                      <p className="font-semibold">Interactive 360° Experience</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -324,6 +343,50 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges - Social Proof */}
+      <section className="py-12 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-edone-primary to-edone-accent flex items-center justify-center">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">100+</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Happy Clients</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-edone-primary to-edone-accent flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">Google</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Trusted Partner</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-edone-primary to-edone-accent flex items-center justify-center">
+                <Clock className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">48 Hrs</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Fast Delivery</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-edone-primary to-edone-accent flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">Free</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Revisions Included</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -471,7 +534,7 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Live Tour Demo */}
+      {/* Live Tour Demo - Different for Hotel */}
       <section className="py-20 lg:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -483,21 +546,131 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
             </p>
           </div>
           
-          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
-            <iframe
-              src="https://tourmkr.com/F1GzsCVngb/45697725p&30.36h&85.33t"
-              width="100%"
-              height="550"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              title={`360 Virtual Tour Demo for ${category.name}`}
-              className="w-full"
-            />
-          </div>
-          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
-            ↑ Drag to look around • Use scroll to zoom • Click hotspots for more info
-          </p>
+          {category.slug === 'hotel' ? (
+            <>
+              {/* Google Street View Section */}
+              <div className="mb-16">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center flex items-center justify-center gap-2">
+                  <span className="text-2xl">🗺️</span> Google Street View Examples
+                </h3>
+                <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+                  These tours are visible on Google Maps and integrated with your Google Business Profile.
+                </p>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!4v1765464780287!6m8!1m7!1sCAoSHENJQUJJaEFTSUxIMTNpTlhwN3l5ZXd4Njk5VnE.!2m2!1d17.66470718971889!2d80.88190008939331!3f353.91125641013883!4f7.5910983313889915!5f0.7820865974627469"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Google Street View Example 1"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!4v1765464885250!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRG5nTkNpalFF!2m2!1d22.31769079334866!2d80.4878714893735!3f174.35261943622504!4f-9.139758917464277!5f0.7820865974627469"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Google Street View Example 2"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!4v1765464997268!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ2p3N3lRWlE.!2m2!1d24.6895019022363!2d83.0615394963845!3f189.3425893778728!4f2.006439987766001!5f0.7820865974627469"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Google Street View Example 3"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* TourMaker Virtual Tours Section */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center flex items-center justify-center gap-2">
+                  <span className="text-2xl">🎯</span> Website Embed Examples (Premium Service)
+                </h3>
+                <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+                  Interactive 360° tours with hotspots, branding & custom navigation - Hosted on your website
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://tourmkr.com/F1yjxbbDvJ"
+                      width="100%"
+                      height="350"
+                      frameBorder="0"
+                      allowFullScreen
+                      loading="lazy"
+                      title="TourMaker Virtual Tour 1"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://tourmkr.com/F1UKBKlKZ1"
+                      width="100%"
+                      height="350"
+                      frameBorder="0"
+                      allowFullScreen
+                      loading="lazy"
+                      title="TourMaker Virtual Tour 2"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://tourmkr.com/F1ycC3BKTB"
+                      width="100%"
+                      height="350"
+                      frameBorder="0"
+                      allowFullScreen
+                      loading="lazy"
+                      title="TourMaker Virtual Tour 3"
+                    />
+                  </div>
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                    <iframe
+                      src="https://tourmkr.com/F1GzsCVngb"
+                      width="100%"
+                      height="350"
+                      frameBorder="0"
+                      allowFullScreen
+                      loading="lazy"
+                      title="TourMaker Virtual Tour 4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
+                <iframe
+                  src="https://tourmkr.com/F1GzsCVngb/45697725p&30.36h&85.33t"
+                  width="100%"
+                  height="550"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  title={`360 Virtual Tour Demo for ${category.name}`}
+                  className="w-full"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                ↑ Drag to look around • Use scroll to zoom • Click hotspots for more info
+              </p>
+            </>
+          )}
         </div>
       </section>
 
@@ -529,15 +702,18 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
             </p>
           </div>
           
-          <PricingGrid packages={
-            {
-              hospital: HOSPITAL_PRICING,
-              hotel: HOTEL_PRICING,
-              jewellery: JEWELLERY_PRICING,
-              school: SCHOOL_PRICING,
-              hardware: HARDWARE_PRICING,
-            }[category.slug] || VIRTUAL_TOUR_PRICING
-          } />
+          <PricingGrid 
+            packages={
+              {
+                hospital: HOSPITAL_PRICING,
+                hotel: HOTEL_PRICING,
+                jewellery: JEWELLERY_PRICING,
+                school: SCHOOL_PRICING,
+                hardware: HARDWARE_PRICING,
+              }[category.slug] || VIRTUAL_TOUR_PRICING
+            }
+            comparisonData={category.slug === 'hotel' ? HOTEL_PACKAGE_COMPARISON : undefined}
+          />
           
           <div className="text-center mt-12">
             <p className="text-gray-500 dark:text-gray-400 mb-6">
@@ -572,25 +748,64 @@ export default async function VirtualTourCategoryPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Case Studies */}
-      {category.caseStudies.length > 0 && (
-        <section className="py-20 lg:py-24 bg-gray-50 dark:bg-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Success Stories
-              </h2>
-            </div>
-            <div className="space-y-8 max-w-4xl mx-auto">
-              {category.caseStudies.map((caseStudy) => (
-                <CaseStudy key={caseStudy.id} caseStudy={caseStudy} />
-              ))}
-            </div>
+
+      {/* FAQ Section */}
+      <section className="py-20 lg:py-24 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Got questions? We&apos;ve got answers.
+            </p>
           </div>
-        </section>
-      )}
+          
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                question: "How long does the virtual tour shoot take?",
+                answer: "A typical shoot takes 2-4 hours depending on the property size. We schedule at your convenience and ensure minimal disruption to your operations."
+              },
+              {
+                question: "Will the tour work on all devices?",
+                answer: "Yes! Our virtual tours are fully responsive and work seamlessly on desktops, tablets, and smartphones. No app download required."
+              },
+              {
+                question: "Is travel cost included in the price?",
+                answer: "For Platinum packages, travel is included. For Basic and Premium packages, travel charges apply for locations outside the city. We'll provide a clear quote upfront."
+              },
+              {
+                question: "How soon will my tour be ready?",
+                answer: "We deliver within 48-72 hours after the shoot. Rush delivery is available for urgent requirements."
+              },
+              {
+                question: "Can I make changes after delivery?",
+                answer: "Absolutely! All packages include free revisions. We want you to be 100% happy with the final result."
+              },
+              {
+                question: "How does Google Business integration work?",
+                answer: "We upload your 360° tour directly to your Google Business Profile. It appears on Google Maps and search results, helping customers find and explore your business."
+              }
+            ].map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700"
+              >
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <HomeCTA />
+      <FloatingWhatsApp />
     </>
   );
 }
