@@ -25,34 +25,18 @@ export const SERVICES_NAV: NavItem[] = [
   {
     label: "Website Design",
     href: "/services/design",
-    children: [
-      { label: "Restaurants", href: "/services/design/restaurants" },
-      { label: "Clinics", href: "/services/design/clinics" },
-      { label: "Retail", href: "/services/design/retail" },
-      { label: "B2B", href: "/services/design/b2b" },
-      { label: "Education", href: "/services/design/education" },
-    ],
   },
   {
     label: "Website Development",
     href: "/services/development",
-    children: [
-      { label: "Restaurants", href: "/services/development/restaurants" },
-      { label: "Clinics", href: "/services/development/clinics" },
-      { label: "Retail", href: "/services/development/retail" },
-      { label: "B2B", href: "/services/development/b2b" },
-      { label: "Education", href: "/services/development/education" },
-    ],
   },
   {
     label: "Google Ads",
     href: "/services/google-ads",
-    children: [
-      { label: "Search Ads", href: "/services/google-ads/search" },
-      { label: "Display Ads", href: "/services/google-ads/display" },
-      { label: "Local Ads", href: "/services/google-ads/local" },
-      { label: "Remarketing", href: "/services/google-ads/remarketing" },
-    ],
+  },
+  {
+    label: "SEO Services",
+    href: "/services/seo",
   },
 ];
 

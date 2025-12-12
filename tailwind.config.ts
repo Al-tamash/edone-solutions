@@ -11,14 +11,13 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "rgb(var(--color-logo-1))", // Orange
-          secondary: "rgb(var(--color-logo-3))", // Red-Orange
-          accent: "rgb(var(--color-logo-2))", // Blue
-          success: "rgb(var(--color-logo-4))", // Green
+          primary: "rgb(244, 150, 30)", // Orange
+          secondary: "rgb(241, 100, 47)", // Red-Orange
+          accent: "rgb(9, 164, 230)", // Blue
         },
         edone: {
           primary: {
-            DEFAULT: "rgb(var(--color-logo-1))",
+            DEFAULT: "#F4961E",
             light: "#FCCE91",
             dark: "#C27610",
             50: "#FEF7EC",
@@ -26,14 +25,14 @@ const config: Config = {
             200: "#FBDAA9",
             300: "#F9C77E",
             400: "#F7B553",
-            500: "rgb(var(--color-logo-1))",
+            500: "#F4961E",
             600: "#D17C0C",
             700: "#9E5E09",
             800: "#6B4006",
             900: "#382103",
           },
           secondary: {
-            DEFAULT: "rgb(var(--color-logo-3))",
+            DEFAULT: "#F1642F",
             light: "#F9A88A",
             dark: "#C44B1E",
             50: "#FEF2EE",
@@ -41,14 +40,14 @@ const config: Config = {
             200: "#FBC5B3",
             300: "#F9A88D",
             400: "#F78B67",
-            500: "rgb(var(--color-logo-3))",
+            500: "#F1642F",
             600: "#D14A17",
             700: "#9E3811",
             800: "#6B260C",
             900: "#381406",
           },
           accent: {
-            DEFAULT: "rgb(var(--color-logo-2))",
+            DEFAULT: "#09A4E6",
             light: "#7BD2F5",
             dark: "#0680B5",
             50: "#E7F7FD",
@@ -56,7 +55,7 @@ const config: Config = {
             200: "#9FE0F9",
             300: "#6FD0F6",
             400: "#3FC1F3",
-            500: "rgb(var(--color-logo-2))",
+            500: "#09A4E6",
             600: "#0784B8",
             700: "#05638A",
             800: "#04425C",
